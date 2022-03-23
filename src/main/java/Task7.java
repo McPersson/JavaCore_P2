@@ -3,14 +3,16 @@ import java.util.Scanner;
 public class Task7 {
 
     public static void main(String[] args) {
+        int chislo1;
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите трехзначное положительное число ");
-        int chislo1 = scanner.nextInt();
-
-        scanner.close();
-
-        if (chislo1 < 100) {
-            throw new IllegalArgumentException("Ошибка: введено не трехзначное положительное число");
+        while (true) {
+            System.out.print("Введите целое трехзначное положительное число ");
+            chislo1 = scanner.nextInt();
+            if (chislo1 > 999 || chislo1 < 100) {
+                System.out.println("Введено не правильное число");
+            } else {
+                break;
+            }
         }
 
         int a = (chislo1 / 100);
@@ -24,5 +26,7 @@ public class Task7 {
             chislo1 = (a * 100) + (c * 10) + b;
             System.out.println(chislo1);
         }
+        scanner.close();
+
     }
 }
